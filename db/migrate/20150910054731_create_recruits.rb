@@ -6,7 +6,8 @@ class CreateRecruits < ActiveRecord::Migration
       t.string :place
       t.string :activity
       t.string :music_instrument
-
+      t.references("user")
+      
       t.timestamps null: false
     end
   end

@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.date :birthday
       t.string :place
       t.string :music_instrument
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

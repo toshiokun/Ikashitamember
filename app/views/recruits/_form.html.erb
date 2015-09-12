@@ -1,0 +1,37 @@
+<%= form_for(@recruit) do |f| %>
+  <% if @recruit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recruit.errors.count, "error") %> prohibited this recruit from being saved:</h2>
+
+      <ul>
+      <% @recruit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :member %><br>
+    <%= f.text_field :member %>
+  </div>
+  <div class="field">
+    <%= f.label :place %><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :activity %><br>
+    <%= f.text_field :activity %>
+  </div>
+  <div class="field">
+    <%= f.label :music_instrument %><br>
+    <%= f.text_field :music_instrument %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

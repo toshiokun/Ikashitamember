@@ -36,17 +36,25 @@ ActiveRecord::Schema.define(version: 20150912070010) do
     t.string   "place"
     t.string   "activity"
     t.string   "music_instrument"
+    t.integer  "recruit_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
+  add_index "recruits", ["recruit_id"], name: "index_recruits_on_recruit_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "password"
+    t.string   "password_confirmation"
     t.date     "birthday"
     t.string   "place"
     t.string   "music_instrument"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
+
+  add_index "users", ["user_id"], name: "index_users_on_user_id"
 
 end

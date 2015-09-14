@@ -6,6 +6,8 @@ class CreateRecruits < ActiveRecord::Migration
       t.string :place
       t.string :activity
       t.string :music_instrument
+      t.references :recruit, index: true, foreign_key: true
+
 
       t.timestamps null: false
     end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :recruits
-  resources :applies
+  resources :recruits do
+    resources :applies
+  end
   resources :offers
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

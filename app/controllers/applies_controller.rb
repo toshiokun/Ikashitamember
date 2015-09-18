@@ -24,11 +24,11 @@ class AppliesController < ApplicationController
   # POST /applies
   # POST /applies.json
   def create
-    @apply = Apply.new(apply_params)
+    @apply = Apply.new(user_id: params[:user_id], recruit_id: params[:recruit_id])
 
     respond_to do |format|
       if @apply.save
-        format.html { redirect_to @apply, notice: 'Apply was successfully created.' }
+        format.html { redirect_to @apply.recruit, notice: 'Apply was successfully created.' }
         format.json { render :show, status: :created, location: @apply }
       else
         format.html { render :new }

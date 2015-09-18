@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :recruits
-  resources :applies
+  resources :recruits do
+    resources :applies
+  end
   resources :offers
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

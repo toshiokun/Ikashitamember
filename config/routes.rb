@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root  'static_pages#home'
   
   resources :users
   resources :recruits
   resources :applies
+=======
+  resources :recruits do
+    resources :applies
+  end
+>>>>>>> 816213f167820a1bab54bf4646e1bbd6d7c101d6
   resources :offers
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

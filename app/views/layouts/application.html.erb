@@ -10,5 +10,10 @@
 
 <%= yield %>
 
+<% if signed_in? %>
+<%= link_to "ユーザー一覧", users_path %>
+<%= link_to "求人一覧", recruits_path %>
+<% end %>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ class AppliesController < ApplicationController
   # POST /applies
   # POST /applies.json
   def create
-    @apply = Apply.new(user_id: params[:user_id], recruit_id: params[:recruit_id])
+    @apply = Apply.new(user_id: current_user.id, recruit_id: params[:recruit_id])
 
     respond_to do |format|
       if @apply.save

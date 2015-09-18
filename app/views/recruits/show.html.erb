@@ -24,6 +24,6 @@
   <strong>Music instrument:</strong>
   <%= @recruit.music_instrument %>
 </p>
-<%= link_to 'Apply', recruit_applies_path({user_id: 1, recruit_id: @recruit.id}), method: :post %> |
+<%= link_to 'Apply', recruit_applies_path({recruit_id: @recruit.id}), method: :post %> |
 <%= link_to 'Edit', edit_recruit_path(@recruit) %> |
 <%= link_to 'Back', recruits_path %>

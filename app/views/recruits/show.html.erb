@@ -27,3 +27,14 @@
 <%= link_to 'Apply', recruit_applies_path({recruit_id: @recruit.id}), method: :post %> |
 <%= link_to 'Edit', edit_recruit_path(@recruit) %> |
 <%= link_to 'Back', recruits_path %>
+
+<div class="span8">
+    <% if @recruit.applies.any? %>
+      <h3>Applies (<%= @recruit.applies.count %>)</h3>
+      <ol class="">
+        <%= render @applies %>
+      </ol>
+    
+    <% end %>
+  </div>
+</div>

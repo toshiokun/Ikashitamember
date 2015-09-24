@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Recruits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Member</th>
+      <th>Place</th>
+      <th>Activity</th>
+      <th>Music instrument</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recruits.each do |recruit| %>
+      <tr>
+        <td><%= recruit.name %></td>
+        <td><%= recruit.member %></td>
+        <td><%= recruit.place %></td>
+        <td><%= recruit.activity %></td>
+        <td><%= recruit.music_instrument %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

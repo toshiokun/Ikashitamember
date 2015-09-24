@@ -25,7 +25,9 @@
   <%= @recruit.music_instrument %>
 </p>
 <%= link_to 'Apply', recruit_applies_path({recruit_id: @recruit.id}), method: :post %> |
-<%= link_to 'Edit', edit_recruit_path(@recruit) %> |
+<% if @recruit.user_id == current_user.id %>
+<%= link_to 'Edit', edit_recruit_path(@recruit) %>|
+<% end %>
 <%= link_to 'Back', recruits_path %>
 
 <div class="span8">
@@ -34,7 +36,7 @@
       <ol class="">
         <%= render @applies %>
       </ol>
-    
+
     <% end %>
   </div>
 </div>

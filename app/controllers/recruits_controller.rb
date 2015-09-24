@@ -25,7 +25,7 @@ class RecruitsController < ApplicationController
   # POST /recruits
   # POST /recruits.json
   def create
-    @recruit = Recruit.new(recruit_params)
+    @recruit = current_user.recruits.build(recruit_params)
 
     respond_to do |format|
       if @recruit.save
@@ -70,6 +70,6 @@ class RecruitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recruit_params
-      params.require(:recruit).permit(:name, :member, :place, :activity, :music_instrument)
+      params.require(:recruit).permit(:user_id, :name, :member, :place, :activity, :music_instrument)
     end
 end

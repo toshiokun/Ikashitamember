@@ -24,16 +24,21 @@ class AppliesController < ApplicationController
   # POST /applies
   # POST /applies.json
   def create
-    @apply = Apply.new(user_id: current_user.id, recruit_id: params[:recruit_id])
+    my_apply = Apply.find(current_user.id)
+    if my_apply.nil?
+      @apply = Apply.new(user_id: current_user.id, recruit_id: params[:recruit_id])
 
-    respond_to do |format|
-      if @apply.save
-        format.html { redirect_to @apply.recruit, notice: 'Apply was successfully created.' }
-        format.json { render :show, status: :created, location: @apply }
-      else
-        format.html { render :new }
-        format.json { render json: @apply.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @apply.save
+          format.html { redirect_to @apply.recruit, notice: 'Apply was successfully created.' }
+          format.json { render :show, status: :created, location: @apply }
+        else
+          format.html { render :new }
+          format.json { render json: @apply.errors, status: :unprocessable_entity }
+        end
       end
+    elsif
+      redirect_to my_apply.recruit, notice: 'すでにApplyは作られています'
     end
   end
 

@@ -22,9 +22,7 @@
         <td><%= recruit.place %></td>
         <td><%= recruit.activity %></td>
         <td><%= recruit.music_instrument %></td>
-        <td><%= link_to 'Show', recruit %></td>
-        <td><%= link_to 'Edit', edit_recruit_path(recruit) %></td>
-        <td><%= link_to 'Destroy', recruit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -32,12 +30,3 @@
 
 <br>
 
-<%= link_to 'New Recruit', new_recruit_path %>
-
-<%#　以下をScaffoldingしたindex.html.erbに追記する %>
-<%= form_tag recruits_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>

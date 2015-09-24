@@ -5,6 +5,8 @@ class RecruitsController < ApplicationController
   # GET /recruits.json
   def index
     @recruits = Recruit.all
+    #ViewのFormで取得したパラメータをモデルに渡す
+    @recruits = Recruit.search(params[:search])
   end
 
   # GET /recruits/1

@@ -24,7 +24,7 @@ class AppliesController < ApplicationController
   # POST /applies
   # POST /applies.json
   def create
-    my_apply = Apply.find(current_user.id)
+    my_apply = Apply.find_by(user_id: current_user.id, recruit_id: params[:recruit_id])
     if my_apply.nil?
       @apply = Apply.new(user_id: current_user.id, recruit_id: params[:recruit_id])
 

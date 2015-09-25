@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :recruits
   has_many :offers
   has_many :applies
+  has_many :chats
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }

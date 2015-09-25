@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915070419) do
+ActiveRecord::Schema.define(version: 20150924183613) do
 
   create_table "applies", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20150915070419) do
 
   add_index "applies", ["recruit_id"], name: "index_applies_on_recruit_id"
   add_index "applies", ["user_id"], name: "index_applies_on_user_id"
+
+  create_table "chats", force: :cascade do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.integer  "spoken_user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "chats", ["user_id"], name: "index_chats_on_user_id"
 
   create_table "offers", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,18 +46,24 @@ ActiveRecord::Schema.define(version: 20150915070419) do
     t.string   "place"
     t.string   "activity"
     t.string   "music_instrument"
+    t.integer  "recruit_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "user_id"
   end
+
+  add_index "recruits", ["recruit_id"], name: "index_recruits_on_recruit_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "password"
+    t.string   "password_confirmation"
     t.date     "birthday"
     t.string   "place"
     t.string   "music_instrument"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "remember_token"
     t.string   "password_digest"
   end

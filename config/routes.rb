@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :chats
   root  'static_pages#home'
-
+  resources :offers
   resources :recruits do
     resources :applies
   end
-  resources :offers
   resources :users
+  resources :chats
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
